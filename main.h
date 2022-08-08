@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+
+#define NULL_STRING "(null)"
+#define NUL '\0'
 /**
 * struct convert - defines a structure for symbols and functions
 *
@@ -34,11 +37,16 @@ int unsigned_integer(va_list);
 int print_octal(va_list list);
 int print_hex(va_list list);
 int print_heX(va_list list);
+int print_String(va_list val);
+int print_pointer(va_list val);
 unsigned int base_len(unsigned int, int);
 char *rev_string(char *);
 void write_base(char *str);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int print_unsgined_number(unsigned int);
-
+int isNonAlphaNumeric(char c);
+char *convert(unsigned long int num, int base, int lc);
+int _puts(char *str);
+int print_hex_aux(unsigned long int n);
 
 #endif
