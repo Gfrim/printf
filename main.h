@@ -33,23 +33,24 @@ int print_percent(va_list);
 int print_integer(va_list);
 int print_number(va_list);
 int print_binary(va_list);
-int print_reversed(va_list arg);
+int print_reversed(va_list);
 int rot13(va_list);
 int unsigned_integer(va_list);
-int print_octal(va_list list);
-int print_hex(va_list list);
-int print_heX(va_list list);
-int print_String(va_list val);
-int print_pointer(va_list val);
+int print_octal(va_list);
+int print_hex(va_list);
+int print_heX(va_list);
+int print_String(va_list);
+int print_pointer(va_list);
+
 unsigned int base_len(unsigned int, int);
 char *rev_string(char *);
-void write_base(char *str);
-char *_memcpy(char *dest, char *src, unsigned int n);
+void write_base(char *);
+char *_memcpy(char *, char *, unsigned int);
 int print_unsgined_number(unsigned int);
-int isNonAlphaNumeric(char c);
-char *convert(unsigned long int num, int base, int lc);
-int _puts(char *str);
-int print_hex_aux(unsigned long int n);
-
+int isNonAlphaNumeric(char);
+char *convert(unsigned long int, int, int);
+int _puts(char *);
+int print_hex_aux(unsigned long int);
+int hex_check(int, char);
 
 #endif
