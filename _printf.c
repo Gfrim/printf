@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf - Receives a string and the necessary parameters to
+ * _printf - Receives the main string and all the necessary parameters to
  * print a formated string
  * @format: A string containing all the desired characters
  * Return: A total count of the characters printed
@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	int printed_chars;
-	conver_t formspec_list[] = {
+	conver_t f_list[] = {
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(arg_list, format);
-	printed_chars = parser(format, formspec_list, arg_list);
+	printed_chars = format_reciever(format, f_list, arg_list);
 	va_end(arg_list);
 	return (printed_chars);
 }
