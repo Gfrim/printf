@@ -1,17 +1,16 @@
 #include "main.h"
 
 /**
- * print_String - print string
- * @val: argument
- *
- * Return: length of string
+ * print_String - print exclusuives string.
+ * @val: argumen t.
+ * Return: the length of the string.
  */
 
-int print_String(va_list a)
+int print_String(va_list l)
 {
 	register short len = 0;
-	char *res, *s = va_arg(a, char *);
-	int c;
+	char *res, *s = va_arg(l, char *);
+	int count;
 
 	if (!s)
 		return (_puts(NULL_STRING));
@@ -19,7 +18,7 @@ int print_String(va_list a)
 	{
 		if (isNonAlphaNumeric(*s))
 		{
-			c += _puts("\\x");
+			count += _puts("\\x");
 			res = convert(*s, 16, 0);
 			if (!res[1])
 				len += _putchar('0');
@@ -32,33 +31,34 @@ int print_String(va_list a)
 }
 
 /**
- * isNonAlphaNumeric - checks if char is not alpha-
- * numeric char on ASCII table
- * @c: char argument
- *
+ * isNonAlphaNumeric - determines if char is a non-
+ * alphanumeric char on ASCII table
+ * @c: input char
  * Return: true or false
  */
 
-int isNonAlphNumeric(char c)
+int isNonAlphaNumeric(char c) 
 {
 	return ((c > 0 && c < 32) || c >= 127);
 }
 
 /**
- * convert - converts base and number into string
- * @num: number
- * @base: base number
- * @lc: flag if hexa values need to be lowercase
- *
- * Return: string
+ * convert - converts number and base into string
+ * @num: input number
+ * @base: input base
+ * @lowercase: flag if hexa values need to be lowercase
+ * Return: result string
  */
 
-char *convert(unsigned long int num, int base, int lc)
+char *convert(unsigned long int num, int base, int lowercase)
 {
-	static char *rep, buffer[50];
+	static char *rep;
+	static char buffer[50];
 	char *ptr;
 
-	rep = (lc) ? "0123456789abcdef" : "0123456789ABCDEF";
+	rep = (lowercase)
+		? "0123456789abcdef"
+		: "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = NUL;
 	do {

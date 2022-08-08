@@ -1,36 +1,37 @@
 #include "main.h"
 
 /**
- * print_hex_aux - prints an hexadecimal number
- * @num: arguments
- *
- * Rteurn: int
+ * print_hex_aux - prints an hexgecimal number.
+ * @num: arguments.
+ * Return: counter.
  */
 
-int print_hex_aux(unsigned long int n)
+int print_hex_aux(unsigned long int num)
 {
-	long int i, *arr, c = 0;
-	unsigned long int temp = n;
+	long int i;
+	long int *array;
+	long int counter = 0;
+	unsigned long int temp = num;
 
-	while (n / 16 != 0)
+	while (num / 16 != 0)
 	{
-		n /= 16;
-		c++;
+		num /= 16;
+		counter++;
 	}
-	c++;
-	arr = malloc(c * sizeof(long int));
+	counter++;
+	array = malloc(counter * sizeof(long int));
 
-	for (i = 0; i < c; i++)
+	for (i = 0; i < counter; i++)
 	{
-		arr[i] = temp % 15;
+		array[i] = temp % 16;
 		temp /= 16;
 	}
-	for (i = c - 1; i >= 0; i--)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (arr[i] > 9)
-			arr[i] = arr[i] + 39;
-		_putchar(arr[i] + '0');
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
 	}
-	free(arr);
-	return (c);
+	free(array);
+	return (counter);
 }

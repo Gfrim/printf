@@ -1,30 +1,33 @@
 #include "main.h"
 
 /**
- * print_pointer - prints an hexadecimal number
- * @val: arguments
- *
- * Return: int
+ * print_pointer - prints an hexgecimal number.
+ * @val: arguments.
+ * Return: counter.
  */
 
 int print_pointer(va_list val)
 {
-	void *ptr;
-	char *S = "(nil)";
+	void *p;
+	char *s = "(nil)";
 	long int a;
-	int b, c;
+	int b;
+	int i;
 
-	pts = va_arg(val, coid*);
-	if (ptr == NULL)
+	p = va_arg(val, void*);
+	if (p == NULL)
 	{
-		for (c = 0; s[c] != '\0'; c++)
-			_putchar(s[c]);
-		return (c);
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
 	}
 
-	a = (unsigned long int)ptr;
+	a = (unsigned long int)p;
 	_putchar('0');
 	_putchar('x');
 	b = print_hex_aux(a);
 	return (b + 2);
 }
+
