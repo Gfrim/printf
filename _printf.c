@@ -39,20 +39,6 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					c++;
 					break;
-				case 'd':
-					c += print_integer(va_arg(ap, int));
-					break;
-				case 'i':
-					c += print_integer(va_arg(ap, int));
-					break;
-				case 'b':
-					c += print_binary(va_arg(ap, int));
-					break;
-				case 'o':
-					c += print_octal(va_arg(ap, int));
-					break;
-				default:
-					break;
 			}
 		}
 	}
