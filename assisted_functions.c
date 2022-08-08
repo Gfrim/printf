@@ -1,40 +1,20 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * base_len - Calculates the length for an octal number
- * @num: The number for which the length is being calculated
- * @base: Base to be calculated by
- * Return: An integer representing the length of a number
- */
-
-unsigned int base_len(unsigned int num, int base)
-{
-	unsigned int i;
-
-	for (i = 0; num > 0; i++)
-	{
-		num = num / base;
-	}
-	return (i);
-}
-
-
-/**
- * rev_string - reverses a string in place
+ * rev_string - reverses a string
  *
  * @s: string to reverse
- * Return: A pointer to a character
+ * Return: Pointer to a character
  */
 
 char *rev_string(char *s)
 {
-	int len;
-	int head;
-	char tmp;
-	char *dest;
+	int len, head;
+	char tmp, *dest;
 
 	for (len = 0; s[len] != '\0'; len++)
-	{}
+		;
 
 	dest = malloc(sizeof(char) * len + 1);
 	if (dest == NULL)
@@ -50,7 +30,6 @@ char *rev_string(char *s)
 	return (dest);
 }
 
-
 /**
  * write_base - sends characters to be written on standard output
  * @str: String to parse
@@ -64,6 +43,23 @@ void write_base(char *str)
 		_putchar(str[i]);
 }
 
+/**
+ * base_len - Calculates the length for a number
+ * @num: number to be analysed
+ * @base: Base to be calculated by
+ * Return: An integer representing the length of a number
+ */
+
+unsigned int base_len(unsigned int num, int base)
+{
+	unsigned int i;
+
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
+}
 
 /**
  * _memcpy - copy memory area
@@ -81,25 +77,4 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 	dest[i] = '\0';
 	return (dest);
-}
-
-
-/**
- * hex_check - Checks which hex function is calling it
- * @num: Number to convert into letter
- * @x: Tells which hex function is calling it
- * Return: Ascii value for a letter
- */
-
-int hex_check(int num, char x)
-{
-	char *hex = "abcdef";
-	char *Hex = "ABCDEF";
-
-	num = num - 10;
-	if (x == 'x')
-		return (hex[num]);
-	else
-		return (Hex[num]);
-	return (0);
 }
