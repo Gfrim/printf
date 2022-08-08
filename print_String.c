@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_String - print exclusuives string.
- * @val: argumen t.
- * Return: the length of the string.
+ * print_String - prints a string.
+ * @val: argument.
+ * Return: int
  */
 
-int print_String(va_list l)
+int print_String(va_list val)
 {
 	register short len = 0;
 	char *res, *s = va_arg(l, char *);
@@ -37,7 +37,7 @@ int print_String(va_list l)
  * Return: true or false
  */
 
-int isNonAlphaNumeric(char c) 
+int isNonAlphaNumeric(char c)
 {
 	return ((c > 0 && c < 32) || c >= 127);
 }
