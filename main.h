@@ -4,16 +4,18 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <stdlib.h>
 
 #define NULL_STRING "(null)"
 #define NUL '\0'
+
 /**
 * struct convert - defines a structure for symbols and functions
 *
 * @sym: The operator
 * @f: The function associated
 */
+
 struct convert
 {
 	char *sym;
@@ -48,5 +50,6 @@ int isNonAlphaNumeric(char c);
 char *convert(unsigned long int num, int base, int lc);
 int _puts(char *str);
 int print_hex_aux(unsigned long int n);
+
 
 #endif
